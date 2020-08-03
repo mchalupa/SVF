@@ -72,6 +72,10 @@ SVFModule* LLVMModuleSet::buildSVFModule(Module &mod)
     buildFunToFunMap();
     buildGlobalDefToRepMap();
 
+    DBOUT(DGENERAL,SVFUtil::outs() << SVFUtil::pasMsg("Building Symbol table ...\n"));
+    SymbolTableInfo *symInfo = SymbolTableInfo::Symbolnfo();
+    symInfo->buildMemModel(svfModule);
+
     return svfModule;
 }
 
